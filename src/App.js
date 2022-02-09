@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import HomeContainer from './components/Home/HomeContainer';
+import RootNav from './RootNav';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -10,12 +10,7 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <HomeContainer />
-    </SafeAreaView>
-  );
+  return <RootNav />;
 };
 
 export default App;

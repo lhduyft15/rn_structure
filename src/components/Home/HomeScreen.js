@@ -9,7 +9,13 @@ import {
 import styles from './_style';
 import Section from './subComponents/Section';
 
-const HomeScreen = ({onPressLearnMore, number, isDarkMode}) => {
+const HomeScreen = ({
+  goToDetails,
+  count,
+  isDarkMode,
+  incrementCount,
+  decrementCount,
+}) => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -34,12 +40,7 @@ const HomeScreen = ({onPressLearnMore, number, isDarkMode}) => {
           <DebugInstructions />
         </Section>
 
-        <Button
-          onPress={onPressLearnMore}
-          title="Increase Number"
-          color="#841584"
-        />
-
+        <Button onPress={incrementCount} title="Up" color="#841584" />
         <View style={styles.numberView}>
           <Text
             style={[
@@ -48,8 +49,14 @@ const HomeScreen = ({onPressLearnMore, number, isDarkMode}) => {
                 color: isDarkMode ? Colors.white : Colors.black,
               },
             ]}>
-            Number : {number}
+            Number : {count}
           </Text>
+        </View>
+
+        <Button onPress={decrementCount} title="Down" color="#841584" />
+
+        <View style={styles.btn}>
+          <Button onPress={goToDetails} title="Go to Details" color="#841584" />
         </View>
       </View>
     </ScrollView>

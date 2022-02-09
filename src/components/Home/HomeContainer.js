@@ -3,18 +3,30 @@ import HomeScreen from './HomeScreen';
 import {Alert, useColorScheme} from 'react-native';
 
 export default function HomeContainer(props) {
-  const [number, setNumber] = useState(0);
+  const {changeCount, count, navigation} = props;
 
   const isDarkMode = useColorScheme() === 'dark';
 
-  const onPressLearnMore = () => {
-    Alert.alert('Increase Number button pressed');
-    setNumber(preNumber => preNumber + 1);
+  const goToDetails = () => {
+    navigation.navigate('Details');
+  };
+
+  const decrementCount = () => {
+    //setCount(preNumber => preNumber - 1);
+    const newCount = count - 1;
+    changeCount(newCount);
+  };
+  const incrementCount = () => {
+    //setCount(preNumber => preNumber + 1);
+    const newCount = count + 1;
+    changeCount(newCount);
   };
 
   const homeProps = {
-    onPressLearnMore,
-    number,
+    goToDetails,
+    decrementCount,
+    incrementCount,
+    count,
     isDarkMode,
     props,
   };

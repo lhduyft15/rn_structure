@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   numberView: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  btn: {
+    marginTop: 30,
+  },
 });
 
 export default styles;
